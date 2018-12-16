@@ -32,20 +32,34 @@ namespace AwesomeSauce.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.Map("/foo",configuration => 
-                configuration.Use(async (context,next)=>
-                                    await context.Response.WriteAsync($"Welcome to Foo")
-                                )
-                    );          
-            app.MapWhen(
-                context =>
-                    context.Request.Method == "POST" &&
-                    context.Request.Path == "/bar",
-                config =>
-                    config.Use(async (context,next) => 
-                                    await context.Response.WriteAsync("Welcome to POST /bar")
-                                )
-            );      
+            // app.Map("/foo",configuration => 
+            //     configuration.Use(async (context,next)=>
+            //                         await context.Response.WriteAsync($"Welcome to Foo")
+            //                     )
+            //         );          
+            // app.MapWhen(
+            //     context =>
+            //         context.Request.Method == "POST" &&
+            //         context.Request.Path == "/bar",
+            //     config =>
+            //         config.Use(async (context,next) => 
+            //                         await context.Response.WriteAsync("Welcome to POST /bar")
+            //                     )
+            // );  
+
+            app.MapWhen(c => c.Request.Path == "/foo/bar", config =>
+            {
+                config.Run(async (context) =>
+                {
+                    context.Response.StatusCode = 200;
+                    await context.Response.WriteAsync("Hello World!");
+                });
+            })
+            .Run(async (context) =>
+            {
+                context.Response.StatusCode = 404;
+                await context.Response.WriteAsync("Not Found");
+            });    
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
