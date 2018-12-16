@@ -15,10 +15,27 @@ namespace AwesomeSauce.Api
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
+            //BuildWebHost(args).Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            new WebHostBuilder()
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .ConfigureAppConfiguration(
+                    config => config.AddJsonFile("appsettings.json",true)
+                )
+                .ConfigureLogging(
+                    logging => logging
+                        .AddConsole()
+                        .AddDebug()
+                )
+                .UseIISIntegration()
+                .UseStartup<Startup>()
+                .Build();
     }
 }
