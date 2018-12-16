@@ -35,7 +35,7 @@ namespace AwesomeSauce.Api
                         .AddDebug()
                 )
                 .UseIISIntegration()
-                .UseStartup<Startup>()
+                .UseStartup<Foo>()
                 .Build();
     }
 }

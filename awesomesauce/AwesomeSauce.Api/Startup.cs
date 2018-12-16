@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,25 @@ namespace AwesomeSauce.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.Use(async (context,next) => {
+                if(context.Request.Path == "/foo"){
+                    await context.Response.WriteAsync($"Welcome to Foo");
+                }
+                else{
+                    await next();
+                }
+            });
+            app.Use(async (context,next) => {
+                if(context.Request.Path == "/bar"){
+                    await context.Response.WriteAsync($"Welcome to Bar");
+                }
+                else{
+                    await next();
+                }
+            });
+            app.Run(async(context) => 
+                await context.Response.WriteAsync($"Welcome to default"));
+                
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -40,7 +60,6 @@ namespace AwesomeSauce.Api
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
             app.UseMvc();
         }
