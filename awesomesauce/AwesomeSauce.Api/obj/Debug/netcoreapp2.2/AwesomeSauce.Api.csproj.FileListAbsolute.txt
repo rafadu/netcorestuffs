@@ -1,0 +1,14 @@
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/bin/Debug/netcoreapp2.2/AwesomeSauce.Api.deps.json
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/bin/Debug/netcoreapp2.2/AwesomeSauce.Api.runtimeconfig.json
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/bin/Debug/netcoreapp2.2/AwesomeSauce.Api.runtimeconfig.dev.json
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/bin/Debug/netcoreapp2.2/AwesomeSauce.Api.dll
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/bin/Debug/netcoreapp2.2/AwesomeSauce.Api.pdb
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/obj/Debug/netcoreapp2.2/AwesomeSauce.Api.csprojAssemblyReference.cache
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/obj/Debug/netcoreapp2.2/AwesomeSauce.Api.csproj.CoreCompileInputs.cache
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/obj/Debug/netcoreapp2.2/AwesomeSauce.Api.RazorAssemblyInfo.cache
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/obj/Debug/netcoreapp2.2/AwesomeSauce.Api.RazorAssemblyInfo.cs
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/obj/Debug/netcoreapp2.2/AwesomeSauce.Api.AssemblyInfoInputs.cache
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/obj/Debug/netcoreapp2.2/AwesomeSauce.Api.AssemblyInfo.cs
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/obj/Debug/netcoreapp2.2/AwesomeSauce.Api.RazorTargetAssemblyInfo.cache
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/obj/Debug/netcoreapp2.2/AwesomeSauce.Api.dll
+/home/rafadu/repositories/netcorestuffs/awesomesauce/AwesomeSauce.Api/obj/Debug/netcoreapp2.2/AwesomeSauce.Api.pdb
