@@ -32,7 +32,7 @@ namespace clientsApi
 
         [HttpPost]
         public IActionResult AddCliente([FromBody]Cliente cliente){
-            logger.LogWarning($"O cliente ${cliente.id} doi inserido!");
+            logger.LogWarning($"O cliente ${cliente.id} foi inserido!");
             ClientesDB.AddCliente(cliente);
             return Ok();
         }

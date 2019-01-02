@@ -11,8 +11,7 @@ namespace clientsApi
             this.email = email;
         }
 
-        public Cliente(string nome, string email)
-            : this(0,nome,email)
+        public Cliente()
         {  }
     }
 }
