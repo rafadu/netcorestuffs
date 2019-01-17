@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -9,6 +10,7 @@ namespace clientsApi
     public class ClientesController : ControllerBase
     {
         private ILogger logger;
+        private static long contadorErroCaotico;
         public ClientesController(ILogger<ClientesController> logger){
             this.logger = logger;
         }
@@ -32,13 +34,16 @@ namespace clientsApi
 
         [HttpPost]
         public IActionResult AddCliente([FromBody]Cliente cliente){
-            logger.LogWarning($"O cliente ${cliente.id} foi inserido!");
+            logger.LogWarning($"O cliente {cliente.id} foi inserido!");
             ClientesDB.AddCliente(cliente);
             return Ok();
         }
 
         [HttpPut]
         public IActionResult updateCliente([FromBody]Cliente cliente){
+            contadorErroCaotico++;
+            if((contadorErroCaotico) % 7 == 0)
+                throw new ApplicationException("Ocorreu um erro caotico");
             Cliente temp = ClientesDB.GetById(cliente.id);
             if(temp == null)
                 return NotFound();
@@ -50,6 +55,7 @@ namespace clientsApi
             return new JsonResult(temp);
         }
 
+	    [HttpDelete("{id}")]
         public IActionResult deleteCliente(long id){
             Cliente temp = ClientesDB.GetById(id);
             if(temp == null)
